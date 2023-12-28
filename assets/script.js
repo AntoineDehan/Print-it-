@@ -19,24 +19,24 @@ const slides = [
 
 
 
-// let arrow = document.querySelectorAll(".arrow img")
-// for (let i = 0; i < arrow.length; i++) {
-// 	arrow[i].addEventListener('click', () => {
-// 		console.log("Test")
-	
-// 	})
-// }
-
-
 let arrowLeft = document.querySelector(".arrow_left")
-let arrowRight = document.querySelector(".arrow_left")
+let arrowRight = document.querySelector(".arrow_right")
+let i = 0
+let currentSlide = slides[i]
 
 const dotConteneur = document.querySelector(".dots")
 
-
 arrowLeft.addEventListener ("click", () => {
-	console.log("Clic")
-
+	if(i === 0) {
+		i = slides.length - 1
+		console.log(i)
+		selectedDot()
+	}
+	else {
+		i = i - 1
+		console.log(i)
+		selectedDot()
+	}
 });
 
 arrowRight.addEventListener ("click", () => {
@@ -45,16 +45,24 @@ arrowRight.addEventListener ("click", () => {
 });
 
 
-
 function dotAdd() {
 	const dot = document.createElement("div")
 	dotConteneur.appendChild(dot)
 	dot.classList.add("dot")
 }
-
-for(let i = 0; i < slides.length; i++) {
+// Ajout dots Carrousel
+for(let index = 0; index < slides.length; index++) {
 	dotAdd()
 }
+
+
+function selectedDot() {
+	let currentDot = document.querySelectorAll(".dots div")[i]
+	currentDot.classList.add("dot_selected")
+	console.log("dot selectionné: " + i)
+}
+
+
 
 
 // console.log(index)
