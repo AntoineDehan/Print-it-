@@ -72,6 +72,9 @@ for(let index = 0; index < slides.length; index++) {
 	dotAdd()
 }
 
+let firstDot = document.querySelectorAll(".dots div")[0]
+firstDot.classList.add("dot_selected")
+
 // Fonction qui permet de changer la class pour faire bouger le point actif
 function selectedDot() {
 	let currentDot = document.querySelectorAll(".dots div")[i]
@@ -80,7 +83,7 @@ function selectedDot() {
 
 // Fonction qui permet d'enlever la class pour déseclectionner le point actif
 function unselectedDot() {
-	let currentDot = document.querySelectorAll(".dots div")[i]
+	let currentDot = document.querySelector(".dot_selected")
 	currentDot.classList.remove("dot_selected")
 }
 
