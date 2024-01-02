@@ -18,51 +18,59 @@ const slides = [
 ]
 
 
-
+// Variables globales
 let arrowLeft = document.querySelector(".arrow_left")
 let arrowRight = document.querySelector(".arrow_right")
 let i = 0
-let currentSlide = slides[i]
 
 const dotConteneur = document.querySelector(".dots")
 
+// Fleche de gauche
 arrowLeft.addEventListener ("click", () => {
+	const img = document.querySelector(".banner-img")
+	const imgText = document.querySelector("#banner p")
 	unselectedDot()
 	if(i === 0) {
 		i = slides.length - 1
 		console.log(i)
 		selectedDot()
+		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
+		imgText.innerHTML = slides[i].tagLine
 	}
 	else {
 		i = i - 1
 		console.log(i)
 		selectedDot()
+		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
+		imgText.innerHTML = slides[i].tagLine
 	}
 });
 
+// Fleche de droite
 arrowRight.addEventListener ("click", () => {
 	console.log("Clic")
 
 });
 
-
+// Fonction qui permet de créer le nombre de points en rapport au nombre total d'images
 function dotAdd() {
 	const dot = document.createElement("div")
 	dotConteneur.appendChild(dot)
 	dot.classList.add("dot")
 }
-// Ajout dots Carrousel
+// Lance la fonction dotAdd
 for(let index = 0; index < slides.length; index++) {
 	dotAdd()
 }
 
-
+// Fonction qui permet de changer la class pour faire bouger le point actif
 function selectedDot() {
 	let currentDot = document.querySelectorAll(".dots div")[i]
 	currentDot.classList.add("dot_selected")
 	console.log("dot selectionné: " + i)
 }
 
+// Fonction qui permet d'enlever la class pour déseclectionner le point actif
 function unselectedDot() {
 	let currentDot = document.querySelectorAll(".dots div")[i]
 	currentDot.classList.remove("dot_selected")
