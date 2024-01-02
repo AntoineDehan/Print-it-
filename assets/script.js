@@ -27,6 +27,7 @@ let currentSlide = slides[i]
 const dotConteneur = document.querySelector(".dots")
 
 arrowLeft.addEventListener ("click", () => {
+	unselectedDot()
 	if(i === 0) {
 		i = slides.length - 1
 		console.log(i)
@@ -60,6 +61,11 @@ function selectedDot() {
 	let currentDot = document.querySelectorAll(".dots div")[i]
 	currentDot.classList.add("dot_selected")
 	console.log("dot selectionné: " + i)
+}
+
+function unselectedDot() {
+	let currentDot = document.querySelectorAll(".dots div")[i]
+	currentDot.classList.remove("dot_selected")
 }
 
 
