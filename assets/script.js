@@ -32,14 +32,12 @@ arrowLeft.addEventListener ("click", () => {
 	unselectedDot()
 	if(i === 0) {
 		i = slides.length - 1
-		console.log(i)
 		selectedDot()
 		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
 		imgText.innerHTML = slides[i].tagLine
 	}
 	else {
 		i = i - 1
-		console.log(i)
 		selectedDot()
 		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
 		imgText.innerHTML = slides[i].tagLine
@@ -49,16 +47,14 @@ arrowLeft.addEventListener ("click", () => {
 // Fleche de droite
 arrowRight.addEventListener ("click", () => {
 	unselectedDot()
-	if(i === 0) {
-		i = slides.length + 1
-		console.log(i)
+	if(i === slides.length - 1) {
+		i = 0
 		selectedDot()
 		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
 		imgText.innerHTML = slides[i].tagLine
 	}
 	else {
 		i = i + 1
-		console.log(i)
 		selectedDot()
 		img.setAttribute("src", "./assets/images/slideshow/" + slides[i].image)
 		imgText.innerHTML = slides[i].tagLine
@@ -71,7 +67,7 @@ function dotAdd() {
 	dotConteneur.appendChild(dot)
 	dot.classList.add("dot")
 }
-// Lance la fonction dotAdd
+// Lance la fonction dotAdd pour la taille totale du tableau
 for(let index = 0; index < slides.length; index++) {
 	dotAdd()
 }
